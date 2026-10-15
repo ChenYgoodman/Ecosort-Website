@@ -1,0 +1,351 @@
+/* 全局样式 */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    min-height: 100vh;
+}
+
+.main-content {
+    margin-top: 80px; /* 根据导航栏高度调整 */
+    padding: 20px;
+    min-height: calc(100vh - 100px);
+}
+
+/* style.css - 新增/修改的导航栏样式 */
+.nav-links li a {
+    color: #2c3e50; /* 默认文字颜色 */
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #4a90e2; /* 悬停颜色 */
+    background-color: rgba(74, 144, 226, 0.1);
+    transform: translateY(-2px);
+}
+
+/* 当前页面高亮效果 */
+.nav-links li a.active {
+    color: #4a90e2;
+    font-weight: 600;
+    background-color: rgba(74, 144, 226, 0.1);
+}
+
+/* 按钮样式保持原有 */
+.login-button, .join-button {
+    /* 原有按钮样式不变 */
+}
+
+/* 答卷页面样式 */
+#quizForm .card {
+    margin-bottom: 20px;
+}
+
+#quizForm .form-check {
+    margin-bottom: 10px;
+}
+
+#quizResult {
+    margin-top: 20px;
+}
+
+/* 导航栏 */
+.custom-navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    z-index: 1000;
+}
+
+.custom-navbar h4 {
+    color: #2c3e50;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 输入框 */
+.input-group {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.input-group:hover {
+    transform: translateY(-2px);
+}
+
+.form-control {
+    border: 2px solid #e0e0e0;
+    border-radius: 12px !important;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-control:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 4px 6px -1px rgba(74, 144, 226, 0.1), 
+                0 2px 4px -1px rgba(74, 144, 226, 0.06);
+}
+
+/* 按钮 */
+.btn-primary {
+    background: linear-gradient(135deg, #4a90e2 0%, #346caf 100%);
+    border: none;
+    border-radius: 12px !important;
+    padding: 0.8rem 2rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(74, 144, 226, 0.3),
+                0 4px 6px -2px rgba(74, 144, 226, 0.1);
+}
+
+/* 结果卡片 */
+.card {
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2rem;
+    width: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 分类标签 */
+.badge {
+    padding: 0.6em 1.2em;
+    font-size: 0.95em;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.bg-primary { background: linear-gradient(135deg, #4a90e2 0%, #346caf 100%); }
+.bg-danger { background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%); }
+.bg-success { background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); }
+.bg-secondary { background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%); }
+
+/* 示例标签 */
+.example-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    border: 1px solid transparent;
+}
+
+.example-item:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 50px;
+        padding: 15px;
+    }
+    
+    .form-control {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+    }
+    
+    .btn-primary {
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+/* 网格板块样式 */
+.grid-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h3 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #4a89dc;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grid-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.grid-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item .icon {
+    margin-bottom: 20px;
+}
+
+.grid-item .icon i {
+    font-size: 2.5rem;
+    color: #4a89dc;
+}
+
+.grid-item .title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.grid-item .description {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        height: 300px;
+    }
+    
+    .carousel-item h2 {
+        font-size: 2rem;
+    }
+    
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel {
+        height: 250px;
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header h3 {
+        font-size: 2rem;
+    }
+}
+
+/* 垃圾分类卡片样式 */
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* 不同垃圾分类的卡片颜色 */
+.recyclable-card .icon-box {
+    background-color: rgba(0, 123, 255, 0.2);
+    color: #007bff;
+}
+
+.hazardous-card .icon-box {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+}
+
+.kitchen-card .icon-box {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+}
+
+.residual-card .icon-box {
+    background-color: rgba(108, 117, 125, 0.2);
+    color: #6c757d;
+}
+
+.bulky-card .icon-box {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+.construction-card .icon-box {
+    background-color: rgba(23, 162, 184, 0.2);
+    color: #17a2b8;
+}
+
+.e-waste-card .icon-box {
+    background-color: rgba(52, 58, 64, 0.2);
+    color: #343a40;
+}
+
+.info-card .icon-box {
+    background-color: rgba(111, 66, 193, 0.2);
+    color: #6f42c1;
+}

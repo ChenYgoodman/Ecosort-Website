@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="image/toux.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Waste Classification</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/Home.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/icon/ionicons.min.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        /* 确保导航栏在轮播图之上 */
+        nav {
+            position: relative;
+            z-index: 1000;
+        }
+        
+        /* 轮播图自定义样式 */
+        .carousel-item {
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .carousel-item:nth-child(1) {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1587132137056-bfbf0166836e');
+        }
+        
+        .carousel-item:nth-child(2) {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1466611653911-95081537e5b7');
+        }
+        
+        .carousel-item:nth-child(3) {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1503596476-1c12a8ba09a9');
+        }
+        
+        .carousel-caption {
+            bottom: 30%;
+            text-align: left;
+            padding: 20px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 10px;
+        }
+            /* 确保轮播图容器相对定位 */
+    .carousel {
+        position: relative;
+    }
+
+    /* 箭头基础样式 - 向上移动100px */
+    .carousel-control-prev,
+    .carousel-control-next {
+        position: absolute;
+        top: calc(50% - 380px); /* 关键修改：向上移动100px */
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        opacity: 0.8;
+        transition: all 0.3s;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 左侧箭头位置 */
+    .carousel-control-prev {
+        left: 20px;
+    }
+
+    /* 右侧箭头位置 */
+    .carousel-control-next {
+        right: 20px;
+    }
+
+    /* 箭头图标样式 */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    /* 悬停效果 */
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* 语言切换按钮样式 */
+    .language-switcher {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+    }
+    .language-btn {
+        background: rgba(255,255,255,0.2);
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+    .language-btn.active {
+        background: rgba(255,255,255,0.5);
+        font-weight: bold;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 语言切换按钮 -->
+    <div class="language-switcher">
+        <button class="language-btn active" data-lang="zh">中文</button>
+        <button class="language-btn" data-lang="en">English</button>
+    </div>
+
+    <!-- menu -->
+    <nav>
+        <div class="logo">
+            <img src="./image/toux.ico" alt="Logo Image">
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="./index.html" class="active" data-i18n="home">Home</a></li>
+            <li><a href="./layout/Quiz.html" data-i18n="quiz">Quiz</a></li>
+            <li><a href="./layout/Chatbot.html" data-i18n="chatbot">Chatbot</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主内容 -->
+    <!-- 轮播图 -->
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-caption">
+                    <h2 data-i18n="carousel1.title">垃圾分类知识分享</h2>
+                    <p data-i18n="carousel1.content">了解如何正确分类垃圾，保护我们的环境。掌握垃圾分类的基本知识，为地球可持续发展贡献力量。</p>
+                    <a href="#" class="btn btn-primary" data-i18n="carousel1.button">了解更多</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-caption">
+                    <h2 data-i18n="carousel2.title">生态环保小贴士</h2>
+                    <p data-i18n="carousel2.content">每日一条环保小贴士，帮助您减少碳足迹，创造更绿色的生活方式。</p>
+                    <a href="#" class="btn btn-primary" data-i18n="carousel2.button">查看今日贴士</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-caption">
+                    <h2 data-i18n="carousel3.title">最新环保新闻</h2>
+                    <p data-i18n="carousel3.content">获取全球最新的环保政策和垃圾分类相关新闻，保持与时俱进。</p>
+                    <a href="#" class="btn btn-primary" data-i18n="carousel3.button">阅读新闻</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden" data-i18n="carousel.prev">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden" data-i18n="carousel.next">Next</span>
+        </button>
+    </div>
+
+<!-- 8个板块部分 -->
+<div class="container my-5">
+    <h2 class="text-center mb-5" data-i18n="guide.title">垃圾分类指南</h2>
+    <div class="row g-4">
+        <!-- 可回收垃圾 -->
+        <div class="col-md-3">
+            <div class="card h-100 recyclable-card">
+                <div class="card-body text-center">
+                    <div class="icon-box mb-3">
+                        <i class="ion-ios-loop" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h4 class="card-title" data-i18n="guide.recyclable">可回收垃圾</h4>
+                    <p class="card-text" data-i18n="guide.recyclable.desc">包括纸张、塑料、玻璃、金属和纺织品等可循环利用的废弃物。</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="layout/test1.html" class="btn btn-outline-primary w-100" data-i18n="guide.details">查看详情</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 有害垃圾 -->
+        <div class="col-md-3">
+            <div class="card h-100 hazardous-card">
+                <div class="card-body text-center">
+                    <div class="icon-box mb-3">
+                        <i class="ion-ios-flame" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h4 class="card-title" data-i18n="guide.hazardous">有害垃圾</h4>
+                    <p class="card-text" data-i18n="guide.hazardous.desc">电池、荧光灯管、过期药品等对人体健康或环境有害的废弃物。</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="layout/test2.html" class="btn btn-outline-danger w-100" data-i18n="guide.details">查看详情</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 湿垃圾 -->
+        <div class="col-md-3">
+            <div class="card h-100 kitchen-card">
+                <div class="card-body text-center">
+                    <div class="icon-box mb-3">
+                        <i class="ion-ios-nutrition" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h4 class="card-title" data-i18n="guide.kitchen">湿垃圾</h4>
+                    <p class="card-text" data-i18n="guide.kitchen.desc">食物残渣、果皮、茶叶等易腐烂的生物质废弃物。</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="layout/test3.html" class="btn btn-outline-success w-100" data-i18n="guide.details">查看详情</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 干垃圾 -->
+        <div class="col-md-3">
+            <div class="card h-100 residual-card">
+                <div class="card-body text-center">
+                    <div class="icon-box mb-3">
+                        <i class="ion-ios-trash" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h4 class="card-title" data-i18n="guide.residual">干垃圾</h4>
+                    <p class="card-text" data-i18n="guide.residual.desc">卫生纸、尿不湿、陶瓷碎片等难以回收的其他废弃物。</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="layout/test4.html" class="btn btn-outline-secondary w-100" data-i18n="guide.details">查看详情</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大件垃圾 -->
+        <div class="col-md-3">
+            <div class="card h-100 bulky-card">
+                <div class="card-body text-center">
+                    <div class="icon-box mb-3">
+                        <i class="ion-ios-home" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h4 class="card-title" data-i18n="guide.bulky">大件垃圾</h4>
+                    <p class="card-text" data-i18n="guide.bulky.desc">家具、家电等体积较大、需要特殊处理的废弃物。</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="layout/test5.html" class="btn btn-outline-warning w-100" data-i18n="guide.details">查看详情</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 装修垃圾 -->
+        <div class="col-md-3">
+            <div class="card h-100 construction-card">
+                <div class="card-body text-center">
+                    <div class="icon-box mb-3">
+                        <i class="ion-ios-hammer" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h4 class="card-title" data-i18n="guide.construction">装修垃圾</h4>
+                    <p class="card-text" data-i18n="guide.construction.desc">砖瓦、混凝土、木材等建筑装修产生的废弃物。</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="layout/test6.html" class="btn btn-outline-info w-100" data-i18n="guide.details">查看详情</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 电子废弃物 -->
+        <div class="col-md-3">
+            <div class="card h-100 e-waste-card">
+                <div class="card-body text-center">
+                    <div class="icon-box mb-3">
+                        <i class="ion-ios-monitor" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h4 class="card-title" data-i18n="guide.ewaste">电子废弃物</h4>
+                    <p class="card-text" data-i18n="guide.ewaste.desc">电脑、手机、电视等废弃电子产品，含有可回收和有害物质。</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="layout/test7.html" class="btn btn-outline-dark w-100" data-i18n="guide.details">查看详情</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- More Information -->
+        <div class="col-md-3">
+            <div class="card h-100 info-card">
+                <div class="card-body text-center">
+                    <div class="icon-box mb-3">
+                        <i class="ion-ios-information" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h4 class="card-title" data-i18n="guide.more">更多信息</h4>
+                    <p class="card-text" data-i18n="guide.more.desc">获取垃圾分类的最新政策、回收点和处理方式等详细信息。</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="layout/test8.html" class="btn btn-primary w-100" data-i18n="guide.learnmore">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/menu.js"></script>
+    <script>
+        // 确保轮播图不会阻止点击事件
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            if (carousel) {
+                carousel.style.pointerEvents = 'none';
+                carousel.querySelectorAll('*').forEach(el => {
+                    el.style.pointerEvents = 'auto';
+                });
+            }
+            
+            // 初始化语言切换功能
+            initLanguageSwitcher();
+        });
+
+        // 语言切换功能
+        function initLanguageSwitcher() {
+            const languageBtns = document.querySelectorAll('.language-btn');
+            const defaultLanguage = 'zh';
+            let currentLanguage = localStorage.getItem('language') || defaultLanguage;
+            
+            // 设置初始语言
+            setLanguage(currentLanguage);
+            
+            // 添加按钮点击事件
+            languageBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                    localStorage.setItem('language', lang);
+                    
+                    // 更新按钮状态
+                    languageBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+                
+                // 设置初始按钮状态
+                if (btn.getAttribute('data-lang') === currentLanguage) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+        
+        // 设置页面语言
+        function setLanguage(lang) {
+            const translations = {
+                'zh': {
+                    'home': '首页',
+                    'quiz': '知识测验',
+                    'chatbot': '智能助手',
+                    'carousel1.title': '垃圾分类知识分享',
+                    'carousel1.content': '了解如何正确分类垃圾，保护我们的环境。掌握垃圾分类的基本知识，为地球可持续发展贡献力量。',
+                    'carousel1.button': '了解更多',
+                    'carousel2.title': '生态环保小贴士',
+                    'carousel2.content': '每日一条环保小贴士，帮助您减少碳足迹，创造更绿色的生活方式。',
+                    'carousel2.button': '查看今日贴士',
+                    'carousel3.title': '最新环保新闻',
+                    'carousel3.content': '获取全球最新的环保政策和垃圾分类相关新闻，保持与时俱进。',
+                    'carousel3.button': '阅读新闻',
+                    'carousel.prev': '上一张',
+                    'carousel.next': '下一张',
+                    'guide.title': '垃圾分类指南',
+                    'guide.recyclable': '可回收垃圾',
+                    'guide.recyclable.desc': '包括纸张、塑料、玻璃、金属和纺织品等可循环利用的废弃物。',
+                    'guide.hazardous': '有害垃圾',
+                    'guide.hazardous.desc': '电池、荧光灯管、过期药品等对人体健康或环境有害的废弃物。',
+                    'guide.kitchen': '湿垃圾',
+                    'guide.kitchen.desc': '食物残渣、果皮、茶叶等易腐烂的生物质废弃物。',
+                    'guide.residual': '干垃圾',
+                    'guide.residual.desc': '卫生纸、尿不湿、陶瓷碎片等难以回收的其他废弃物。',
+                    'guide.bulky': '大件垃圾',
+                    'guide.bulky.desc': '家具、家电等体积较大、需要特殊处理的废弃物。',
+                    'guide.construction': '装修垃圾',
+                    'guide.construction.desc': '砖瓦、混凝土、木材等建筑装修产生的废弃物。',
+                    'guide.ewaste': '电子废弃物',
+                    'guide.ewaste.desc': '电脑、手机、电视等废弃电子产品，含有可回收和有害物质。',
+                    'guide.more': '更多信息',
+                    'guide.more.desc': '获取垃圾分类的最新政策、回收点和处理方式等详细信息。',
+                    'guide.details': '查看详情',
+                    'guide.learnmore': '了解更多'
+                },
+                'en': {
+                    'home': 'Home',
+                    'quiz': 'Quiz',
+                    'chatbot': 'Chatbot',
+                    'carousel1.title': 'Waste Sorting Knowledge',
+                    'carousel1.content': 'Learn how to properly sort waste and protect our environment. Master the basics of waste classification to contribute to sustainable development.',
+                    'carousel1.button': 'Learn More',
+                    'carousel2.title': 'Eco Tips',
+                    'carousel2.content': 'Daily eco-friendly tips to help reduce your carbon footprint and create a greener lifestyle.',
+                    'carousel2.button': 'View Today\'s Tip',
+                    'carousel3.title': 'Latest Eco News',
+                    'carousel3.content': 'Get the latest global environmental policies and waste sorting related news to stay up-to-date.',
+                    'carousel3.button': 'Read News',
+                    'carousel.prev': 'Previous',
+                    'carousel.next': 'Next',
+                    'guide.title': 'Waste Sorting Guide',
+                    'guide.recyclable': 'Recyclable',
+                    'guide.recyclable.desc': 'Includes paper, plastic, glass, metal and textiles that can be recycled.',
+                    'guide.hazardous': 'Hazardous',
+                    'guide.hazardous.desc': 'Batteries, fluorescent tubes, expired medicines and other waste harmful to human health or the environment.',
+                    'guide.kitchen': 'Kitchen Waste',
+                    'guide.kitchen.desc': 'Food scraps, fruit peels, tea leaves and other perishable organic waste.',
+                    'guide.residual': 'Residual Waste',
+                    'guide.residual.desc': 'Toilet paper, diapers, ceramic fragments and other waste that is difficult to recycle.',
+                    'guide.bulky': 'Bulky Waste',
+                    'guide.bulky.desc': 'Furniture, appliances and other large items that require special handling.',
+                    'guide.construction': 'Construction Waste',
+                    'guide.construction.desc': 'Bricks, concrete, wood and other waste generated from construction and renovation.',
+                    'guide.ewaste': 'E-Waste',
+                    'guide.ewaste.desc': 'Computers, phones, TVs and other electronic products containing recyclable and hazardous materials.',
+                    'guide.more': 'More Information',
+                    'guide.more.desc': 'Get detailed information on the latest waste sorting policies, recycling points and disposal methods.',
+                    'guide.details': 'View Details',
+                    'guide.learnmore': 'Learn More'
+                }
+            };
+            
+            // 更新所有带有data-i18n属性的元素
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+    </script>
+    <script src="http://qiniu.longxin.press/LuoXue.js" charset="utf-8"></script>
+</body>
+</html>
+
+</html>

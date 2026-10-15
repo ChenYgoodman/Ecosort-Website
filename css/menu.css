@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+body {
+    overflow-x: hidden;
+    color: #f2f5f7;
+}
+
+nav {
+    height: 6rem;
+    width: 100vw;
+    /* background-image: url("../image/menu.jpeg"); */
+    background-repeat: no-repeat;
+    background-size: 100%;
+    box-shadow: 0 3px 20px rgba(11, 104, 224, 0.2);
+    display: flex;
+    /* position: fixed; */
+    float: left;
+    z-index: 10;
+    opacity: 0.8;
+}
+
+
+/*Styling logo*/
+
+.logo {
+    padding: 1vh 1vw;
+    width: 50px;
+    text-align: center;
+}
+
+.logo img {
+    height: 100%;
+    margin: 0.4rem 0 0 1.2rem;
+}
+
+
+/*Styling Links*/
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    width: 88vw;
+    padding: 0 0.7vw;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.nav-links li a {
+    font-size: 1.2rem; /* Increased from default */
+    color: #f2f5f7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #61DAFB;
+    font-size: 1.3rem; /* Slightly larger on hover */
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a::before {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0%;
+    position: absolute;
+    transition: all ease-in-out 250ms;
+    margin: 0 0 0 10%;
+}
+
+.nav-links li a:hover::before {
+    width: 80%;
+}
+
+
+/*Styling Buttons*/
+
+.login-button {
+    background: linear-gradient(135deg, #1a1a8d 0%, darkblue 100%);
+    border: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2em;
+    font-weight: 500;
+    font-size: 1.1rem; /* Increased button font size */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, darkblue 0%, #1a1a8d 100%);
+}
+
+/* 注册按钮 - 新样式 */
+.join-button {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    border: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2em;
+    font-weight: 500;
+    font-size: 1.1rem; /* Increased button font size */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    margin-left: 1vw; /* 与登录按钮间距 */
+}
+
+.join-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+}
+
+
+/*Styling Hamburger Icon*/
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background: #f2f5f7;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.hamburger {
+    display: none;
+}
+
+
+/*Stying for small screens*/
+
+@media screen and (max-width: 800px) {
+    nav {
+        position: fixed;
+        z-index: 3;
+    }
+    .hamburger {
+        display: block;
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 2;
+        transition: all 0.7s ease;
+    }
+    .nav-links {
+        position: fixed;
+        background: #131418;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(50px at 90% -20%);
+        -webkit-clip-path: circle(50px at 90% -10%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+    .nav-links.open {
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+    .nav-links li {
+        opacity: 0;
+    }
+    .nav-links li:nth-child(1) {
+        transition: all 0.5s ease 0.2s;
+    }
+    .nav-links li:nth-child(2) {
+        transition: all 0.5s ease 0.4s;
+    }
+    .nav-links li:nth-child(3) {
+        transition: all 0.5s ease 0.6s;
+    }
+    .nav-links li:nth-child(4) {
+        transition: all 0.5s ease 0.7s;
+    }
+    .nav-links li:nth-child(5) {
+        transition: all 0.5s ease 0.8s;
+    }
+    .nav-links li:nth-child(6) {
+        transition: all 0.5s ease 0.9s;
+        margin: 0;
+    }
+    .nav-links li:nth-child(7) {
+        transition: all 0.5s ease 1s;
+        margin: 0;
+    }
+    li.fade {
+        opacity: 1;
+    }
+    
+    /* Larger font for mobile menu items */
+    .nav-links li a {
+        font-size: 1.5rem;
+    }
+    .nav-links li a:hover {
+        font-size: 1.6rem;
+    }
+}
+
+
+/*Animating Hamburger Icon on Click*/
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    transition: all 0.7s ease;
+    width: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
